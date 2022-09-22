@@ -4,6 +4,8 @@ source common.sh
 
 echo Installing Nginx
 yum install nginx -y &>>$LOG_FILE
+systemctl enable nginx
+systemctl start nginx
 StatusCheck $?
 
 echo Downloading Nginx Web Content
@@ -32,6 +34,5 @@ done
 StatusCheck $?
 
 echo Starting Nginx Service
-systemctl enable nginx &>>$LOG_FILE
 systemctl restart nginx &>>$LOG_FILE
 StatusCheck $?
