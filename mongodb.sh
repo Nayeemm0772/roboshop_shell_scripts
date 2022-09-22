@@ -33,5 +33,6 @@ echo "Load Schema"
 for schema in catalogue.js users.js ; do
   mongo < ${schema} &>>$LOG_FILE
 done
+StatusCheck $?
 
 
